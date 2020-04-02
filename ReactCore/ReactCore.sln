@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCore.API", "ReactCore.API\ReactCore.API.csproj", "{5A30C438-4DE7-41BB-82A6-2143159003C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactCore.API", "ReactCore.API\ReactCore.API.csproj", "{5A30C438-4DE7-41BB-82A6-2143159003C6}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ReactCore.DB", "ReactCore.DB\ReactCore.DB.sqlproj", "{55C06923-C3B1-4AC4-A60A-E8A6AA796986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCore.UI", "ReactCore.UI\ReactCore.UI.csproj", "{38C6934B-8D7F-4209-B2E1-912867D5466E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactCore.UI", "ReactCore.UI\ReactCore.UI.csproj", "{38C6934B-8D7F-4209-B2E1-912867D5466E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCore.Tests", "ReactCore.Tests\ReactCore.Tests.csproj", "{B4DC049B-D8FD-4E59-956B-B2F7241AE5E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{38C6934B-8D7F-4209-B2E1-912867D5466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38C6934B-8D7F-4209-B2E1-912867D5466E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38C6934B-8D7F-4209-B2E1-912867D5466E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DC049B-D8FD-4E59-956B-B2F7241AE5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DC049B-D8FD-4E59-956B-B2F7241AE5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DC049B-D8FD-4E59-956B-B2F7241AE5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DC049B-D8FD-4E59-956B-B2F7241AE5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
