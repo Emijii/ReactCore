@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using ReactCore.API.Classes;
 
@@ -13,10 +11,11 @@ namespace ReactCore.API.Controllers
     [Route("[controller]")]
     public class ReasonController : ControllerBase
     {
-        //The database connection string was base-64 encoded. The value lives in App.config.
-        public static string SQL_CONNECTION = Helper.DecodeBase64String(ConfigurationManager.ConnectionStrings["SqlConnectionReactCoreProdDB"].ConnectionString);
         private const string SQL_GET_REASONS = "GetReasons";
         private const string COLUMN_NAME = "Reason";
+
+        //The database connection string was base-64 encoded. The value lives in App.config.
+        public static string SqlConnection = Helper.DecodeBase64String(ConfigurationManager.ConnectionStrings["SqlConnectionReactCoreProdDB"].ConnectionString);
 
         [HttpGet]
         public ActionResult<List<Reason>> Get()
@@ -28,7 +27,7 @@ namespace ReactCore.API.Controllers
         {
             List<Reason> dataList = new List<Reason>();
 
-            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION))
+            using (SqlConnection connection = new SqlConnection(SqlConnection))
             {
                 using (SqlCommand command = new SqlCommand(SQL_GET_REASONS, connection))
                 {
