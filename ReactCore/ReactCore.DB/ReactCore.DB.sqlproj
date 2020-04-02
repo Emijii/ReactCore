@@ -62,11 +62,13 @@
     <Folder Include="reactcore\Tables" />
     <Folder Include="reactcore\Stored Procedures" />
     <Folder Include="Scripts\PostDeployment" />
+    <Folder Include="Security\Users" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="reactcore\Tables\Reasons.sql" />
     <Build Include="reactcore\Stored Procedures\GetReasons.sql" />
     <Build Include="Security\reactcore.sql" />
+    <Build Include="Security\Users\ReactCore.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\SeedData.sql" />
