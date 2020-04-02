@@ -20,7 +20,7 @@ namespace ReactCore.API.Controllers
             return GetReasons();
         }
 
-        private List<Reason> GetReasons()
+        public List<Reason> GetReasons()
         {
             List<Reason> dataList = new List<Reason>();
 
