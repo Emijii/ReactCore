@@ -35,6 +35,8 @@ namespace ReactCore.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("default");
+
             app.UseRouting();
 
             app.UseAuthorization();

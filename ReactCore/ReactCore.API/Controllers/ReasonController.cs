@@ -8,7 +8,7 @@ using ReactCore.API.Classes;
 namespace ReactCore.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]")]    
     public class ReasonController : ControllerBase
     {
         private const string SQL_GET_REASONS = "GetReasons";
