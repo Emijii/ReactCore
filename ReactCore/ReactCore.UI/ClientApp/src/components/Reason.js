@@ -7,10 +7,9 @@ import { Card, CardTitle, CardText, CardBody } from 'reactstrap';
 //2. You end up with less code.
 //3. Separating container and presentational components is a best practice. Presentational components don't need to set state.
 
-const Reason = ({ title, summary }) => (
+const Reason = ({ summary }) => (
     <Card>
         <CardBody>
-            <CardTitle>{title}</CardTitle>
             <CardText>{summary}</CardText>
         </CardBody>
     </Card>

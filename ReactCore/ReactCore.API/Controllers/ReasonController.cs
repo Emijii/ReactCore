@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
 using ReactCore.API.Classes;
 
@@ -8,6 +10,10 @@ namespace ReactCore.API.Controllers
     [Route("[controller]")]
     public class ReasonController : ControllerBase
     {
+        private const string SQL_CONNECTION = "Server=.;Database=ReactCore;Trusted_Connection=True;";
+        private const string SQL_GET_REASONS = "GetReasons";
+        private const string COLUMN_NAME = "Reason";
+
         [HttpGet]
         public ActionResult<List<Reason>> Get()
         {
@@ -16,13 +22,28 @@ namespace ReactCore.API.Controllers
 
         private List<Reason> GetReasons()
         {
-            List<Reason> reasons = new List<Reason>();
+            List<Reason> dataList = new List<Reason>();
 
-            reasons.Add(new Reason() { Summary = "I'd like to work for a company that values diversity and inclusion." });
-            reasons.Add(new Reason() { Summary = "I'd like to work with some great people who are exicted about collaborating on new projects and technologies." });
-            reasons.Add(new Reason() { Summary = "I'd like to share my experience and be a resource for my colleagues." });
+            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION))
+            {
+                using (SqlCommand command = new SqlCommand(SQL_GET_REASONS, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
 
-            return reasons;
+                    SqlDataReader dataReader = command.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(dataReader);
+
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        dataList.Add(new Reason() { Summary = dataTable.Rows[i][COLUMN_NAME].ToString() });
+                    }
+                }
+            }
+
+            return dataList;
         }
     }
 }
