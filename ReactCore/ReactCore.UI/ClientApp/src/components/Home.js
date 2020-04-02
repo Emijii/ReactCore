@@ -5,13 +5,31 @@ import Reason from './Reason';
 export class Home extends Component {
     static displayName = Home.name;
 
+    constructor(props) {
+        super(props);
+        this.state = { reasons: [], loading: true };
+    }
+
+    componentDidMount() {
+        this.populateReasons();
+    }
+
     render() {
         return (
             <CardDeck>
-                <Reason title="Reason 1" description="Description 1" />
-                <Reason title="Reason 2" description="Description 2" />
-                <Reason title="Reason 3" description="Description 3" />
+                {
+                    this.state.reasons.map(reason => <Reason title={reason.summary} />)
+                }
             </CardDeck>
         );
+    }
+
+    async populateReasons() {
+        //TODO: Figure out CORS
+        //const response = await fetch('http://localhost:5000/reason');
+
+        const response = await fetch('http://localhost:50775/reason');
+        const data = await response.json();
+        this.setState({ reasons: data, loading: false });
     }
 }
