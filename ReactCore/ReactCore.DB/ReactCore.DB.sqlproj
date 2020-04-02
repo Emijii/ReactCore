@@ -56,5 +56,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="reactcore" />
+    <Folder Include="Scripts" />
+    <Folder Include="Security" />
+    <Folder Include="reactcore\Tables" />
+    <Folder Include="reactcore\Stored Procedures" />
+    <Folder Include="Scripts\PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="reactcore\Tables\Reasons.sql" />
+    <Build Include="reactcore\Stored Procedures\GetReasons.sql" />
+    <Build Include="Security\reactcore.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PostDeployment\SeedData.sql" />
+    <None Include="ReactCore.DB.Local.Full.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="Environment">
+      <DefaultValue>LOCAL</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RunSeedData">
+      <DefaultValue>TRUE</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>
