@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using ReactCore.API.Classes;
 
@@ -10,7 +13,8 @@ namespace ReactCore.API.Controllers
     [Route("[controller]")]
     public class ReasonController : ControllerBase
     {
-        private const string SQL_CONNECTION = "Server=.;Database=ReactCore;Trusted_Connection=True;";
+        //The database connection string was base-64 encoded. The value lives in App.config.
+        public static string SQL_CONNECTION = Encoding.UTF8.GetString(Convert.FromBase64String(ConfigurationManager.ConnectionStrings["SqlConnectionReactCoreProdDB"].ConnectionString));
         private const string SQL_GET_REASONS = "GetReasons";
         private const string COLUMN_NAME = "Reason";
 
