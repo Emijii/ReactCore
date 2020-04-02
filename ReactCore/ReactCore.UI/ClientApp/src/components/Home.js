@@ -18,7 +18,7 @@ export class Home extends Component {
         return (
             <CardDeck>
                 {
-                    this.state.reasons.map(reason => <Reason summary={reason.summary} />)
+                    this.state.reasons.map(reason => <Reason key={reason.id} summary={reason.summary} />)
                 }
             </CardDeck>
         );

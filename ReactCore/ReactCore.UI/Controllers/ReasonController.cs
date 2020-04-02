@@ -38,7 +38,7 @@ namespace ReactCore.UI.Controllers
 
                     for (int i = 0; i < dataTable.Rows.Count; i++)
                     {
-                        dataList.Add(new Reason() { Summary = dataTable.Rows[i][COLUMN_NAME].ToString() });
+                        dataList.Add(new Reason() { Id = i, Summary = dataTable.Rows[i][COLUMN_NAME].ToString() });
                     }
                 }
             }
