@@ -14,7 +14,7 @@ namespace ReactCore.API.Controllers
     public class ReasonController : ControllerBase
     {
         //The database connection string was base-64 encoded. The value lives in App.config.
-        public static string SQL_CONNECTION = Encoding.UTF8.GetString(Convert.FromBase64String(ConfigurationManager.ConnectionStrings["SqlConnectionReactCoreProdDB"].ConnectionString));
+        public static string SQL_CONNECTION = Helper.DecodeBase64String(ConfigurationManager.ConnectionStrings["SqlConnectionReactCoreProdDB"].ConnectionString);
         private const string SQL_GET_REASONS = "GetReasons";
         private const string COLUMN_NAME = "Reason";
 
