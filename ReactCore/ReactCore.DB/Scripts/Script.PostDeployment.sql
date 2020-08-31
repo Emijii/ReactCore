@@ -12,7 +12,7 @@ Post-Deployment Script Template
 
 --RunSeedData is a SQLCMD Variable and can be found by looking at the project properties under the [SQLCMD Variables] tab.
 --RunSeedData = TRUE means that when we deploy the database, we execute the SQL statements that are contained in the SeedData.sql file.
---The reason this is a nice to have is because we an deploy a fresh copy of the database with fresh seed data whenever we want.
+--The reason this is a nice to have is because we can deploy a fresh copy of the database with fresh seed data whenever we want.
 --It makes it really easy to start fresh after making lots of data changes.
 --The application will also always have test data, which makes it nice when trying to style or design the UI.
 IF (N'$(RunSeedData)' = 'TRUE')    
