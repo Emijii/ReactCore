@@ -5,7 +5,7 @@ export class Email extends Component {
     sendEmail() {
         const message = "Test Email Message";
 
-        fetch('http://localhost:50775/Email/SendEmail/' + message, {
+        fetch('http://localhost:5000/Email/SendEmail/' + message, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
